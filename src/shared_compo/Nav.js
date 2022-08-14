@@ -16,11 +16,12 @@ function Nav() {
             <h1></h1>
           </div>
           <div class="menu-items">
-            <li><a href="Genre1">Mystery </a></li>
-            <li><a href="Genre1">Thriller</a></li>
-            <li><a href="Genre1">Horror</a></li>
-            <li><a href="Genre1">Historical</a></li>
-            <li><a href="Genre1">Romance</a></li>
+            <li><Link to="Cart">Cart</Link></li>
+            <li><Link to="Genre1">Mystery </Link></li>
+            <li><Link to="Genre1">Thriller</Link></li>
+            <li><Link to="Genre1">Horror</Link></li>
+            <li><Link to="Genre1">Historical</Link></li>
+            <li><Link to="Genre1">Romance</Link></li> 
           </div>
         </div>
       </div>

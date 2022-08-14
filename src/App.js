@@ -2,10 +2,10 @@ import './App.css';
 import Nav from './shared_compo/Nav'
 import Main from './landing_page/Main';
 import Stylesheet from './landing_page/Stylesheet'
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route,Routes } from 'react-router-dom';
 import Genre1 from './landing_page/Genre1'
 import Cart from './landing_page/Cart';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
   const [search, setSearch] = useState("physics");
@@ -13,18 +13,23 @@ function App() {
   const changeGenre = (s) => {
     setSearch(s);
   }
+
+  const [cart, setCart] = useState([])
+  useEffect(() => {
+    console.log(cart)
+  }, [cart])
+  
   return (
     <div className="App">
       <Nav />
-      <Router>
-        <Stylesheet />
-
+      <>
+        {/* <Stylesheet /> */}
         <Routes>
           <Route path="/" exact element={<Main changeGenre={changeGenre} />} />
-          <Route path="/Genre1" exact element={<Genre1 search={search} />} />
-          <Route path="/Cart" exact element={<Cart />} />
+          <Route path="/Genre1" exact element={<Genre1 search={search} cart={cart} setCart={setCart}/>} />
+          <Route path="/Cart" exact element={<Cart cart={cart} setCart={setCart}/>} />
         </Routes>
-      </Router>
+      </>
     </div>
   );
 }
